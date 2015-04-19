@@ -32,7 +32,7 @@ app.post('/', function (request, response) {
     var resource2 = request["body"]["resource2"];
     fest.thoughtCollector.unshift(resource);
     var wstream = fs.createWriteStream('test.txt');
-    wstream.write(fest);
+    wstream.write("test");
     wstream.end();
     response.send(fest);
 });
