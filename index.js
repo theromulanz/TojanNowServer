@@ -31,7 +31,6 @@ app.post('/', function (request, response) {
     var resource = request["body"]["resource"];
     var resource2 = request["body"]["resource2"];
     fest.thoughtCollector.unshift(resource);
-    var fs = require('fs');
     var wstream = fs.createWriteStream('test.txt');
     wstream.write(fest);
     wstream.end();
