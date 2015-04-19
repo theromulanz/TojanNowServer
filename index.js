@@ -26,7 +26,8 @@ app.get('/', function(request, response) {
 // POST method route
 app.post('/', function (request, response) {
     var fest = JSON.parse(fs.readFileSync('master.json', 'utf8'));
-    response.send(fest);
+
+    response.send(fest[request.body[componentName]);
 });
 
 app.listen(app.get('port'), function() {
