@@ -30,9 +30,10 @@ app.post('/', function (request, response) {
     var action = request["body"]["action"];
     var resource = request["body"]["resource"];
     var resource2 = request["body"]["resource2"];
-    var wstream = fs.createWriteStream('log.txt');
-        wstream.write(JSON.parse(request));
-        wstream.end();
+    
+    var wstream2 = fs.createWriteStream('log.txt');
+    wstream2.write(componentName);
+    wstream2.end();
     
     
     if(componentName == "thoughtCollector" && action == "append"){
