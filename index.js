@@ -37,7 +37,7 @@ app.post('/', function (request, response) {
         
         console.log(action + "-----------------------------------------------");
         fest.thoughtCollector.unshift(resource);
-        var wstream = fs.createWriteStream('test.txt');
+        var wstream = fs.createWriteStream('master.json');
         wstream.write(JSON.stringify(fest));
         wstream.end();
     }
