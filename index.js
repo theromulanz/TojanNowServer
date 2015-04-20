@@ -30,13 +30,10 @@ app.post('/', function (request, response) {
     var action = request["body"]["action"];
     var resource = request["body"]["resource"];
     var resource2 = request["body"]["resource2"];
-    console.log("testing -----------------------------------------");
-    var wstream2 = fs.createWriteStream('log.txt');
-    wstream2.write(componentName);
-    wstream2.end();
     
     
     if(componentName == "thoughtCollector" && action == "append"){
+        console.log(action + "-----------------------------------------------");
         fest.thoughtCollector.unshift(resource);
         var wstream = fs.createWriteStream('test.txt');
         wstream.write(JSON.stringify(fest));
