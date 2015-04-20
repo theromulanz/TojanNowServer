@@ -30,10 +30,15 @@ app.post('/', function (request, response) {
     var action = request["body"]["action"];
     var resource = request["body"]["resource"];
     var resource2 = request["body"]["resource2"];
-    fest.thoughtCollector.unshift(resource);
-    var wstream = fs.createWriteStream('test.txt');
-    wstream.write("test");
-    wstream.end();
+
+    if(componentName == "thoughtCollector" && action == "append"){
+        
+        fest.thoughtCollector.unshift(resource);
+        var wstream = fs.createWriteStream('test.txt');
+        wstream.write(JSON.stringify(fest));
+        wstream.end();
+    }
+    
     response.send(fest);
 });
 
