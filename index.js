@@ -33,6 +33,7 @@ app.post('/', function (request, response) {
     
     
     if(componentName == "thoughtCollector" && action == "append"){
+        console.log("test-----------------------------------------------------");
         console.log(action + "-----------------------------------------------");
         fest.thoughtCollector.unshift(resource);
         var wstream = fs.createWriteStream('test.txt');
