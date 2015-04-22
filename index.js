@@ -42,7 +42,7 @@ app.post('/', function (request, response) {
         if(username in profiles){
             console.log(profiles[username]);
             if(profiles[username].password == password){
-                fest["profile] = profiles[username];
+                fest["profile"] = profiles[username];
                 response.send(fest);
             }
             else{
