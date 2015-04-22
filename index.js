@@ -33,7 +33,7 @@ app.post('/', function (request, response) {
     var resource2 = request["body"]["resource2"];
     
     if( action == "login"){
-        var username = resource.username;
+        var username = String(resource.username);
         var password = resource.password;
         console.log(username + " " + password);
         var profiles = JSON.parse(fs.readFileSync('profiles.json', 'utf8'));
