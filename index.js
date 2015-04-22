@@ -39,6 +39,7 @@ app.post('/', function (request, response) {
         var profiles = JSON.parse(fs.readFileSync('profiles.json', 'utf8'));
         console.log(profiles);
         if('username' in profiles){
+            console.log(profiles[username]);
             if(profiles[username].password == password){
                 fest[username].profile = profiles[username];
                 response.send(fest);
