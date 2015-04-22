@@ -1,0 +1,22 @@
+{ "Guest" : 
+{
+    "name": "Guest",
+    "id": "1",
+    "username": "Guest",
+    "password": "",
+    "gender": "male"
+},
+{"Justin":
+    "name": "Justin",
+    "id": "2",
+    "username": "",
+    "password": "",
+    "gender": "male"
+},
+{ "Sandy":
+    "name": "Sandy",
+    "id": "3",
+    "username": "Sandy",
+    "password": "",
+    "gender": "male"
+}
