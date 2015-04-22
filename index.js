@@ -53,19 +53,21 @@ app.post('/', function (request, response) {
             }
         
     }
-    console.log("test-----------------------------------------------------");
-    
-    
-    if(componentName == "thoughtCollector" && action == "append"){
+    else(
+        console.log("test-----------------------------------------------------");
         
-        console.log(action + "-----------------------------------------------");
-        fest.thoughtCollector.unshift(resource);
-        var wstream = fs.createWriteStream('master.json');
-        wstream.write(JSON.stringify(fest));
-        wstream.end();
+        
+        if(componentName == "thoughtCollector" && action == "append"){
+            
+            console.log(action + "-----------------------------------------------");
+            fest.thoughtCollector.unshift(resource);
+            var wstream = fs.createWriteStream('master.json');
+            wstream.write(JSON.stringify(fest));
+            wstream.end();
+        }
+        
+        response.send(fest);
     }
-    
-    response.send(fest);
 });
 
 app.listen(app.get('port'), function() {
