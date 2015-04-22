@@ -25,11 +25,25 @@ app.get('/', function(request, response) {
 
 // POST method route
 app.post('/', function (request, response) {
+
     var fest = JSON.parse(fs.readFileSync('master.json', 'utf8'));
     var componentName = request["body"]["componentName"];
     var action = request["body"]["action"];
     var resource = request["body"]["resource"];
     var resource2 = request["body"]["resource2"];
+    
+    if( action == "login"){
+        var username = resource.username;
+        var password = resource.password;
+        var profiles = JSON.parse(fs.readFileSync('profiles.json', 'utf8'));
+        if(profiles[username].password == password){
+            response.send(fest);
+        }
+        else{
+            return -1;
+        }
+        
+    }
     console.log("test-----------------------------------------------------");
     
     
