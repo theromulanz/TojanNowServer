@@ -35,8 +35,10 @@ app.post('/', function (request, response) {
     if( action == "login"){
         var username = resource.username;
         var password = resource.password;
+        console.log(username + " " + password);
         var profiles = JSON.parse(fs.readFileSync('profiles.json', 'utf8'));
         if(profiles[username].password == password){
+            fest[username].profile = profiles[username];
             response.send(fest);
         }
         else{

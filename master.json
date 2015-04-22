@@ -1,10 +1,10 @@
 {
     "profile": {
-        "name": "Justin",
-        "id": "123456",
+        "name": "",
+        "id": "0",
         "username": "",
         "password": "",
-        "gender": "male"
+        "gender": ""
     },
     "thoughtCollector": [
         {
