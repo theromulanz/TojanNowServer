@@ -46,10 +46,12 @@ app.post('/', function (request, response) {
                 response.send(fest);
             }
             else{
-                return -1;
+                response.send(-1);
             }
         }
-        else{return -1}
+        else{
+            response.send( -1);
+            }
         
     }
     console.log("test-----------------------------------------------------");
