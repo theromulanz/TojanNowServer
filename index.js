@@ -65,12 +65,6 @@ app.post('/', function (request, response) { // Return only private msg of user!
     else{
         console.log("Already Logged In " + user + "-----------------------------------------------");
         
-        // set user private thoughts
-        var pvtThoughts4Usr = fest.thoughtJar.filter(function (element) {
-                return (element.name.toLowerCase() == String(user).toLowerCase() || element.name2.toLowerCase() == String(user).toLowerCase());
-        });
-        fest.thoughtJar = pvtThoughts4Usr;
-        
         if(componentName == "thoughtCollector" && action == "append"){
             
             console.log(action + "-----------------------------------------------");
@@ -102,6 +96,13 @@ app.post('/', function (request, response) { // Return only private msg of user!
             }
             
         }
+        
+        // set user private thoughts
+        var pvtThoughts4Usr = fest.thoughtJar.filter(function (element) {
+                return (element.name.toLowerCase() == String(user).toLowerCase() || element.name2.toLowerCase() == String(user).toLowerCase());
+        });
+        fest.thoughtJar = pvtThoughts4Usr;
+        
         response.send(fest);
     }
 });
