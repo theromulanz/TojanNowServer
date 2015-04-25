@@ -69,6 +69,7 @@ app.post('/', function (request, response) {
             var idxThread = -1;
             for(var i = 0; i < fest.thoughtJar.length; i++){
                 if(resource.name.toLowerCase() == fest.thoughtJar[i].name.toLowerCase()){
+                    console.log(fest.thoughtJar[i].name  + " " + i);
                     idxThread = i;
                 }
             }
