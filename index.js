@@ -55,7 +55,7 @@ app.post('/', function (request, response) { // Return only private msg of user!
         
     }
     else{
-        console.log("Already Logged In-----------------------------------------------");
+        console.log("Already Logged In " + user + "-----------------------------------------------");
         
         
         var pvtThoughts4Usr = fest.thoughtJar.filter(function (element) {
