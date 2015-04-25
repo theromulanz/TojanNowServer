@@ -31,7 +31,7 @@ app.post('/', function (request, response) {
     var action = request["body"]["action"];
     var resource = request["body"]["resource"];
     var resource2 = request["body"]["resource2"];
-    console.log(action);
+
     if( action == "login"){
         var username = String(resource.username);
         var password = resource.password;
@@ -65,7 +65,12 @@ app.post('/', function (request, response) {
             wstream.write(JSON.stringify(fest));
             wstream.end();
         }
-        
+        else if(componentName == "thoughtJar" && action == "append"){
+            fest.thoughtJar.unshift(resource);
+            var wstream = fs.createWriteStream('master.json');
+            wstream.write(JSON.stringify(fest));
+            wstream.end();
+        }
         response.send(fest);
     }
 });
