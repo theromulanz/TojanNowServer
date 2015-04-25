@@ -31,7 +31,7 @@ app.post('/', function (request, response) {
     var action = request["body"]["action"];
     var resource = request["body"]["resource"];
     var resource2 = request["body"]["resource2"];
-    
+    console.log(action);
     if( action == "login"){
         var username = String(resource.username);
         var password = resource.password;
