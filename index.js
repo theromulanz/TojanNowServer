@@ -44,12 +44,12 @@ app.post('/', function (request, response) {
             }
             else{
                 console.log("login failure");
-                response.send({"failure": "true");
+                response.send({"failure": "true"});
             }
         }
         else{
             console.log("login failure");
-            response.send({"failure": "true");
+            response.send({"failure": "true"});
         }
         
     }
