@@ -43,14 +43,14 @@ app.post('/', function (request, response) {
                 response.send(fest);
             }
             else{
-                console.log("-1");
-                response.send(-1);
+                console.log("login failure");
+                response.send({"failure": "true");
             }
         }
         else{
-            console.log("-1");
-            response.send( -1);
-            }
+            console.log("login failure");
+            response.send({"failure": "true");
+        }
         
     }
     else{
