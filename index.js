@@ -27,6 +27,7 @@ app.get('/', function(request, response) {
 app.post('/', function (request, response) { // Return only private msg of user!!!!!
 
     var fest = JSON.parse(fs.readFileSync('master.json', 'utf8'));
+    var user = request["body"]["user"];
     var componentName = request["body"]["componentName"];
     var action = request["body"]["action"];
     var resource = request["body"]["resource"];
@@ -57,9 +58,11 @@ app.post('/', function (request, response) { // Return only private msg of user!
         console.log("Already Logged In-----------------------------------------------");
         
         
-        /*var pvtThoughts4Usr = fest.thoughtJar.filter(function (element) {
-                return (element.name.toLowerCase() == name.toLowerCase() );
-        });*/
+        var pvtThoughts4Usr = fest.thoughtJar.filter(function (element) {
+                return (element.name.toLowerCase() == user.toLowerCase() || element.name2.toLowerCase() == user.toLowerCase());
+        });
+        
+        fest.thoughtJar = pvtThoughts4Usr;
         
         if(componentName == "thoughtCollector" && action == "append"){
             
