@@ -75,7 +75,7 @@ app.post('/', function (request, response) {
             }
             
             if(idxThread > -1){
-                fest.thoughtJar[i].thoughts.unshift(resource);
+                fest.thoughtJar[idxThread].thoughts.unshift(resource);
                 var wstream = fs.createWriteStream('master.json');
                 wstream.write(JSON.stringify(fest));
                 wstream.end();
