@@ -59,7 +59,7 @@ app.post('/', function (request, response) { // Return only private msg of user!
         
         
         var pvtThoughts4Usr = fest.thoughtJar.filter(function (element) {
-                return (element.name.toLowerCase() == user.toLowerCase() || element.name2.toLowerCase() == user.toLowerCase());
+                return (element.name.toLowerCase() == String(user).toLowerCase() || element.name2.toLowerCase() == String(user).toLowerCase());
         });
         
         fest.thoughtJar = pvtThoughts4Usr;
