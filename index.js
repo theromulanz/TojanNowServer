@@ -66,10 +66,26 @@ app.post('/', function (request, response) {
             wstream.end();
         }
         else if(componentName == "thoughtJar" && action == "append"){
-            fest.thoughtJar.unshift(resource);
-            var wstream = fs.createWriteStream('master.json');
-            wstream.write(JSON.stringify(fest));
-            wstream.end();
+            var idxThread = -1;
+            for(var i = 0; i < fest.thoughtJar.length; i++){
+                if(resource.name.toLowerCase() == fest.thoughtJar[i].name.toLowerCase()){
+                    idxThread = i;
+                }
+            }
+            
+            if(idxThread > -1){
+                fest.thoughtJar[i].thoughts.unshift(resource);
+                var wstream = fs.createWriteStream('master.json');
+                wstream.write(JSON.stringify(fest));
+                wstream.end();
+            }
+            else{
+                fest.thoughtJar.unshift(resource);
+                var wstream = fs.createWriteStream('master.json');
+                wstream.write(JSON.stringify(fest));
+                wstream.end();
+            }
+            
         }
         response.send(fest);
     }
