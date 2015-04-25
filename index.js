@@ -57,9 +57,9 @@ app.post('/', function (request, response) { // Return only private msg of user!
         console.log("Already Logged In-----------------------------------------------");
         
         
-        var pvtThoughts4Usr = thoughts.filter(function (element) {
-                return element.name.toLowerCase() == name.toLowerCase();
-        });
+        /*var pvtThoughts4Usr = fest.thoughtJar.filter(function (element) {
+                return (element.name.toLowerCase() == name.toLowerCase() );
+        });*/
         
         if(componentName == "thoughtCollector" && action == "append"){
             
