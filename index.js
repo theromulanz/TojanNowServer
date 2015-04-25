@@ -24,7 +24,7 @@ app.get('/', function(request, response) {
 });
 
 // POST method route
-app.post('/', function (request, response) {
+app.post('/', function (request, response) { // Return only private msg of user!!!!!
 
     var fest = JSON.parse(fs.readFileSync('master.json', 'utf8'));
     var componentName = request["body"]["componentName"];
@@ -54,8 +54,12 @@ app.post('/', function (request, response) {
         
     }
     else{
-        console.log("test-----------------------------------------------------");
+        console.log("Already Logged In-----------------------------------------------");
         
+        
+        var pvtThoughts4Usr = thoughts.filter(function (element) {
+                return element.name.toLowerCase() == name.toLowerCase();
+        });
         
         if(componentName == "thoughtCollector" && action == "append"){
             
