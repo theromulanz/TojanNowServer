@@ -98,7 +98,6 @@ app.post('/', function (request, response) { // Return only private msg of user!
             
         }
         else if(componentName == "thoughtFest"){
-            console.log(componentName + " " + action + "$$$$$$$$$$$$$$");
             if(action == "add"){
                 resource.id = Math.floor((Math.random() * 100000) + 1); 
                 fest.thoughtFest.unshift(resource);
@@ -107,12 +106,11 @@ app.post('/', function (request, response) { // Return only private msg of user!
                 wstream.end();
             }
             else{ // figure out this part. Get the id and data from connector to here. Update the thoughtFest by id sent.
-                console.log(resource2);
                 console.log("@@@@@@@@@@@@@@@@");
                 fest.thoughtFest.unshift(resource);
                 for (var i = 0; i < fest.thoughtFest.length; i++) {
-                    if (fest.thoughtFest[i].id === id) {
-                        fest.thoughtFest[i].thoughts.unshift(resource2);
+                    if (fest.thoughtFest[i].id === resource2) {
+                        fest.thoughtFest[i].thoughts.unshift(resource);
                     }
                 }
                 var wstream = fs.createWriteStream('master.json');
