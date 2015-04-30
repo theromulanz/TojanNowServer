@@ -129,10 +129,13 @@ app.post('/', function (request, response) { // Return only private msg of user!
         }
         
         // set user private thoughts
-        var pvtThoughts4Usr = fest.thoughtJar.filter(function (element) {
+        if(fest.thoughtJar != "undefined"){
+            var pvtThoughts4Usr = fest.thoughtJar.filter(function (element) {
                 return (element.name.toLowerCase() == String(user).toLowerCase() || element.name2.toLowerCase() == String(user).toLowerCase());
-        });
-        fest.thoughtJar = pvtThoughts4Usr;
+            });
+            fest.thoughtJar = pvtThoughts4Usr;
+        }
+        
         console.log(fest);
         response.send(fest);
     }
