@@ -65,7 +65,8 @@ app.post('/', function (request, response) { // Return only private msg of user!
         profiles[username] = resource;
         var wstream = fs.createWriteStream('master.json');
         wstream.write(JSON.stringify(profiles));
-            wstream.end();
+        wstream.end();
+        fest["profile"] = profiles[username];
         response.send(fest);
     }
     else{
