@@ -60,6 +60,8 @@ app.post('/', function (request, response) { // Return only private msg of user!
         
     }
     else if( action == "signup"){
+        console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+        console.log(fest);
         var username = String(resource.username);
         var profiles = JSON.parse(fs.readFileSync('profiles.json', 'utf8'));
         profiles[username] = resource;
