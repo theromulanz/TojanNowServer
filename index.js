@@ -61,7 +61,6 @@ app.post('/', function (request, response) { // Return only private msg of user!
     }
     else if( action == "signup"){
         console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-        console.log(fest);
         var username = String(resource.username);
         var profiles = JSON.parse(fs.readFileSync('profiles.json', 'utf8'));
         profiles[username] = resource;
@@ -130,7 +129,7 @@ app.post('/', function (request, response) { // Return only private msg of user!
         }
         
         // set user private thoughts
-        if(fest.thoughtJar != 'undefined'){
+        if(fest.thoughtJar.length > 0){
             console.log(fest.thoughtJar);
             var pvtThoughts4Usr = fest.thoughtJar.filter(function (element) {
                 return (element.name.toLowerCase() == String(user).toLowerCase() || element.name2.toLowerCase() == String(user).toLowerCase());
