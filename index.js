@@ -59,6 +59,14 @@ app.post('/', function (request, response) { // Return only private msg of user!
         }
         
     }
+    else if( action == "signup"){
+        var profiles = JSON.parse(fs.readFileSync('profiles.json', 'utf8'));
+        profiles.unshift(resource);
+        var wstream = fs.createWriteStream('master.json');
+        wstream.write(JSON.stringify(profiles));
+            wstream.end();
+        response.send(fest);
+    }
     else{
         
         if(componentName == "thoughtCollector" && action == "append"){
