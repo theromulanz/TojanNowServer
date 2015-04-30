@@ -48,27 +48,21 @@ app.post('/', function (request, response) { // Return only private msg of user!
                         return (element.name.toLowerCase() == String(user).toLowerCase() || element.name2.toLowerCase() == String(user).toLowerCase());
                 });
                 fest.thoughtJar = pvtThoughts4Usr;
-                console.log(fest);
-                console.log("login success: " + user + "---------------------------------");
                 response.send(fest);
             }
             else{
-                console.log("login failure ---------------------------------");
                 response.send({"failure": "true"});
             }
         }
         else{
-            console.log("login failure ----------------------------------");
             response.send({"failure": "true"});
         }
         
     }
     else{
-        console.log("Already Logged In " + user + "-----------------------------------------------");
         
         if(componentName == "thoughtCollector" && action == "append"){
             
-            console.log(action + "-----------------------------------------------");
             fest.thoughtCollector.unshift(resource);
             var wstream = fs.createWriteStream('master.json');
             wstream.write(JSON.stringify(fest));
@@ -105,8 +99,7 @@ app.post('/', function (request, response) { // Return only private msg of user!
                 wstream.write(JSON.stringify(fest));
                 wstream.end();
             }
-            else{ // figure out this part. Get the id and data from connector to here. Update the thoughtFest by id sent.
-                console.log("@@@@@@@@@@@@@@@@");
+            else{
                 for (var i = 0; i < fest.thoughtFest.length; i++) {
                     if (fest.thoughtFest[i].id === resource2) {
                         fest.thoughtFest[i].thoughts.unshift(resource);
