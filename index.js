@@ -110,9 +110,9 @@ app.post('/', function (request, response) { // Return only private msg of user!
                 console.log(resource2);
                 console.log("@@@@@@@@@@@@@@@@");
                 fest.thoughtFest.unshift(resource);
-                for (var i = 0; i < thoughtFests.length; i++) {
-                    if (thoughtFests[i].id === id) {
-                        thoughtFests[i].thoughts.unshift(newThought);
+                for (var i = 0; i < fest.thoughtFest.length; i++) {
+                    if (fest.thoughtFest[i].id === id) {
+                        fest.thoughtFest[i].thoughts.unshift(resource2);
                     }
                 }
                 var wstream = fs.createWriteStream('master.json');
