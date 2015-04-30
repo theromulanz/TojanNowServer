@@ -100,7 +100,7 @@ app.post('/', function (request, response) { // Return only private msg of user!
         else if(componentName == "thoughtFest"){
             if(action == "add"){
                 resource.id = Math.floor((Math.random() * 100000) + 1); 
-                fest.thoughtFests.unshift(resource);
+                fest.thoughtFest.unshift(resource);
                 var wstream = fs.createWriteStream('master.json');
                 wstream.write(JSON.stringify(fest));
                 wstream.end();
