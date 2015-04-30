@@ -129,7 +129,8 @@ app.post('/', function (request, response) { // Return only private msg of user!
         }
         
         // set user private thoughts
-        if(fest.thoughtJar.length > 0){
+        if(fest.thoughtJar != 'undefined'){
+            console.log("##########################");
             console.log(fest.thoughtJar);
             var pvtThoughts4Usr = fest.thoughtJar.filter(function (element) {
                 return (element.name.toLowerCase() == String(user).toLowerCase() || element.name2.toLowerCase() == String(user).toLowerCase());
