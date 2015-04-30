@@ -64,7 +64,7 @@ app.post('/', function (request, response) { // Return only private msg of user!
         var username = String(resource.username);
         var profiles = JSON.parse(fs.readFileSync('profiles.json', 'utf8'));
         profiles[username] = resource;
-        var wstream = fs.createWriteStream('master.json');
+        var wstream = fs.createWriteStream('profiles.json');
         wstream.write(JSON.stringify(profiles));
         wstream.end();
         fest["profile"] = profiles[username];
