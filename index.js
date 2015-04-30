@@ -107,7 +107,6 @@ app.post('/', function (request, response) { // Return only private msg of user!
             }
             else{ // figure out this part. Get the id and data from connector to here. Update the thoughtFest by id sent.
                 console.log("@@@@@@@@@@@@@@@@");
-                fest.thoughtFest.unshift(resource);
                 for (var i = 0; i < fest.thoughtFest.length; i++) {
                     if (fest.thoughtFest[i].id === resource2) {
                         fest.thoughtFest[i].thoughts.unshift(resource);
