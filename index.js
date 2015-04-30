@@ -105,8 +105,13 @@ app.post('/', function (request, response) { // Return only private msg of user!
                 wstream.write(JSON.stringify(fest));
                 wstream.end();
             }
-            else{
-            
+            else{ // figure out this part. Get the id and data from connector to here. Update the thoughtFest by id sent.
+                console.log(resource2);
+                console.log("@@@@@@@@@@@@@@@@");
+                fest.thoughtFest.unshift(resource);
+                var wstream = fs.createWriteStream('master.json');
+                wstream.write(JSON.stringify(fest));
+                wstream.end();
             }
         }
         
