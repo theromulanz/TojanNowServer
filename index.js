@@ -74,6 +74,7 @@ app.post('/', function (request, response) { // Return only private msg of user!
                 return (element.name.toLowerCase() == String(user).toLowerCase() || element.name2.toLowerCase() == String(user).toLowerCase());
         });
         fest.thoughtJar = pvtThoughts4Usr;
+        console.log(fest);
         response.send(fest);
     }
     else{
