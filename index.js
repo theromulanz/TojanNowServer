@@ -32,7 +32,7 @@ app.post('/', function (request, response) { // Return only private msg of user!
     var action = request["body"]["action"];
     var resource = request["body"]["resource"];
     var resource2 = request["body"]["resource2"];
-    if(resource2.id != 'undefined'){
+    if(resource2 != 'undefined'){
         console.log(resource2.id);
     }
     
