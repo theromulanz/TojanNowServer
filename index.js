@@ -60,8 +60,9 @@ app.post('/', function (request, response) { // Return only private msg of user!
         
     }
     else if( action == "signup"){
+        var username = String(resource.username);
         var profiles = JSON.parse(fs.readFileSync('profiles.json', 'utf8'));
-        profiles.unshift(resource);
+        profiles[username] = resource;
         var wstream = fs.createWriteStream('master.json');
         wstream.write(JSON.stringify(profiles));
             wstream.end();
