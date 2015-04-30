@@ -32,6 +32,7 @@ app.post('/', function (request, response) { // Return only private msg of user!
     var action = request["body"]["action"];
     var resource = request["body"]["resource"];
     var resource2 = request["body"]["resource2"];
+    console.log(componentName + "@@@@@@@@@@@@");
     if(componentName == "thoughtFest"){
         console.log(resource2.id);
         console.log("@@@@@@@@@@@@@@@@@@@@@");
