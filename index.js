@@ -32,11 +32,6 @@ app.post('/', function (request, response) { // Return only private msg of user!
     var action = request["body"]["action"];
     var resource = request["body"]["resource"];
     var resource2 = request["body"]["resource2"];
-    console.log(componentName + "@@@@@@@@@@@@");
-    if(componentName == "thoughtFest"){
-        console.log(resource2.id);
-        console.log("@@@@@@@@@@@@@@@@@@@@@");
-    }
     
 
     if( action == "login"){
@@ -101,6 +96,18 @@ app.post('/', function (request, response) { // Return only private msg of user!
                 wstream.end();
             }
             
+        }
+        else if(componentName == "thoughtFest"){
+            if(action == "add"){
+                var newFest.id = Math.floor((Math.random() * 100000) + 1); 
+                fest.thoughtFests.unshift(resource);
+                var wstream = fs.createWriteStream('master.json');
+                wstream.write(JSON.stringify(fest));
+                wstream.end();
+            }
+            else{
+            
+            }
         }
         
         // set user private thoughts
